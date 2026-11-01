@@ -106,7 +106,7 @@
 
   <header>
     <h1>Brein<span>wolk</span></h1>
-    <p>Vier plaatjes, één verhaal. Of niet Eén klik en je hebt een nieuw verhaal.</p>
+    <p>Vier plaatjes, één verhaal. Of niet. Eén klik en je hebt een nieuw verhaal.</p>
   </header>
 
   <noscript><p style="background:#fff8d6;border:3px solid #1a1a1a;border-radius:12px;padding:14px;text-align:center;font-weight:600">
@@ -138,7 +138,7 @@
 window.addEventListener("error",function(e){
   var box=document.getElementById("js-error"); if(!box)return;
   box.style.display="block";
-  box.textContent="Er ging iets mis: "+(e.message||"onbekende fout")+(e.lineno?" (regel "+e.lineno+")":"");
+  box.textContent="Er ging iets F*** mis: "+(e.message||"onbekende fout")+(e.lineno?" (regel "+e.lineno+")":"");
 });
 (function(){
 "use strict";
@@ -159,12 +159,22 @@ const BUBBLE_FONT = `ComicNeueEmbedded,"Comic Sans MS",Arial,sans-serif`;
    surprised, think, firm
 ========================================================= */
 const SLOTS = [
-  { key:"problem", label:"1 · Het probleem",
+  { key:"problem", label:"1 · Zo begon het",
     carriers:[
       "Ik heb zo'n last van {x}!",
       "Ik word helemaal gek van {x}.",
       "Daar heb je het weer: {x}!",
       "Ik zit al weken met {x}.",
+      "Ik vind {x} zeer ongewenst.",
+      "Ja, {x} stoort me zeer.",
+      "Ik wil {x} niet, nooit niet.",
+      "De pleuris met {x}.",
+      "Altijd gezeik met {x}.",
+      "Inderdaad, {x} is zeer irritant.",
+      "Prik me lek, zuig me leeg met {x}.",
+      "De mensheid kampt met {x}.",
+      "Het is een on-Nederlands probleem, {x}.",
+      "Ik denk dat ik {x} angsaanjagend vind.",
       "Mijn grootste probleem is {x}."
     ],
     items:[
@@ -172,10 +182,12 @@ const SLOTS = [
       {t:"de rijzende zeespiegel"},{t:"jou luchtvervuiling"},{t:"de ziekte van Lock"},{t:"de oorlog in Sudan"},
       {t:"aanranding van planten"},{t:"te donker asfalt"},{t:"de dikke donder"},{t:"mensen met vleeswangen"},{t:"mijn dee en aa, zeg maar"},
       {t:"de electrische auto uitstoot"},{t:"het rechtshandig gezwam"},{t:"mijn beenvlaag"},{t:"de erg korte afstanden"},{t:"de rijdende drones"},
-      {t:"de oorhulk"},{t:"de jachtkraag van Luns"},{t:"die massieve kenniselementen"},{t:"de langdraadige giro"}
+      {t:"de oorhulk"},{t:"de jachtkraag van Luns"},{t:"die massieve kenniselementen"},{t:"de langdraadige giro"},{t:"de laaggradige ontsteking"},{t:"Diabetes Mellitus"},
+      {t:"de dikke voorhuid"},{t:"het kutklimaat"},{t:"een veel te grote lul"},{t:"dat grijze schaamhaar"},{t:"de bolle wangen"},{t:"de daling van de zeespiegel"},{t:"de kleur van de wasbak"},
+      {t:"uw krullende woorden"},{t:"de animalocide van tegenwoordig"},{t:"de transfobische transitie"},{t:"de maandenlange operatie"}
     ]
   },
-  { key:"cause", label:"2 · De oorzaak",
+  { key:"cause", label:"2 · De diepte-analyse",
     carriers:[
       "Het is de schuld van {x}.",
       "Het komt door {x}.",
@@ -186,17 +198,18 @@ const SLOTS = [
       "Ik weet het zeker: het ligt aan {x}.",
       "Alles wijst op {x}.",
       "Veroorzaakt door {x}.",
-      "Er is maar 1 schuldig hier aan {x}."
+      "Er is maar 1 schuldig hier aan, {x}."
     ],
     items:[
       {t:"president Nixon"},{t:"de Kennedys"},{t:"opwarming van de aarde"},{t:"stampende motoren"},
       {t:"dikke rails"},{t:"bladvorming voor de mond"},{t:"lange tong"},{t:"complexe processen"},
       {t:"migratie"},{t:"vragende ganzen"},{t:"oma"},{t:"die gillende baby"},{t:"te volle sloten"},
       {t:"vragende ganzen"},{t:"lange kletsnekken"},{t:"wuivend fruit"},{t:"acuut verzadigd vet"},
-      {t:"de massa van vetlappen"},{t:"Trumpie"},{t:"voormalig resident Ram"},{t:"de schaapanalyse"}
+      {t:"de massa van vetlappen"},{t:"Trumpie"},{t:"voormalig resident Ram"},{t:"de schaapanalyse"},
+      {t:"tabak rokende jongeren"},{t:"El Nino"},{t:"goedkope flutverzekeringen"},{t:"het pentagon"},{t:"de laatste halm"}
     ]
   },
-  { key:"feeling", label:"3 · Het gevoel",
+  { key:"feeling", label:"3 · De ervaren betekenis",
     carriers:[
       "En daarom voel ik {x}.",
       "Het maakt dat ik me {x} voel.",
@@ -209,7 +222,7 @@ const SLOTS = [
     items:[
       {t:"kut",f:"angry"},{t:"plausibel",f:"think"},{t:"als malaise",f:"sick"},{t:"onderdrukt",f:"flat"},
       {t:"familiair",f:"happy"},{t:"goed",f:"happy"},{t:"vrolijk",f:"happy"},{t:"gelaten",f:"flat"},
-      {t:"omgekeerd",f:"surprised"},{t:"ongericht",f:"think"}
+      {t:"omgekeerd",f:"surprised"},{t:"ongericht",f:"think"},{t:"ongeacht",f:"flat"},{t:"tentatief",f:"sick"}
     ]
   },
   { key:"action", label:"4 · Het besluit",
@@ -219,13 +232,17 @@ const SLOTS = [
       "Dus ga ik {x}.",
       "Ik weet het, ik ga daarom {x}.",
       "Mijn besluit: {x}!",
+      "Er is maar 1 oplossing {x}!",
+      "Dit maakt dat ik ga {x}!",
+      "Gefeliciteerd hoor, dan ga ik wel {x}!",
       "Vanaf nu ga ik {x}."
     ],
     items:[
       {t:"spelen"},{t:"langer afwachten"},{t:"afhakken"},{t:"onderpissen"},{t:"nadenken"},
       {t:"liedje schrijven"},{t:"stem uitbrengen"},{t:"losse slagen doen"},{t:"stoer kijken"},{t:"afhaken"},{t:"de boel roodwassen"},{t:"van de toren afblazen"},
       {t:"een nachtje doorliggen"},{t:"een waarschuwing denken"},{t:"mijn ratio eens goed wassen"},{t:"Lambiek om advies vragen"},{t:"Wiske naaien"},{t:"de voorhuid oprekken"},
-      {t:"je huid bezichtigen"},{t:"een aardbeving induceren"},{t:"alles ontkennen"}
+      {t:"je huid bezichtigen"},{t:"een aardbeving induceren"},{t:"alles ontkennen"} ,{t:"doorrukken"},{t:"yoghurt beffen"},{t:"liezen likken"},{t:"harmonisch neuken"},{t:"gebalanceerd penetreren"},
+      {t:"op visite bij de dader"},{t:"alles opbiechten bij de verzekeraar"},{t:"me laten gaan bij de huisarts"},{t:"vliegensvlug vagina-vingeren"}
   
     ]
   }
