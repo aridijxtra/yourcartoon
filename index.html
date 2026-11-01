@@ -105,8 +105,8 @@
 <div class="wrap">
 
   <header>
-    <h1>Tekst<span>wolk</span></h1>
-    <p>Vier plaatjes, één verhaal: een probleem, een oorzaak, een gevoel en een besluit. Eén klik en je hebt een nieuw verhaal.</p>
+    <h1>Brein<span>wolk</span></h1>
+    <p>Vier plaatjes, één verhaal. Of niet Eén klik en je hebt een nieuw verhaal.</p>
   </header>
 
   <noscript><p style="background:#fff8d6;border:3px solid #1a1a1a;border-radius:12px;padding:14px;text-align:center;font-weight:600">
@@ -127,10 +127,10 @@
       <button class="secondary" id="btn-dl-tall">⬇️ Download lange strook</button>
       <button class="ghost" id="btn-share">📤 Verstuur</button>
     </div>
-    <p class="hint">Gevallen een plaatje je wel? Zet het slotje aan, dan blijft het staan als je een nieuw verhaal maakt. Met het potlood pas je de teksten zelf aan.</p>
+    <p class="hint">Bevalt een plaatje? Zet het slotje aan, dan blijft het staan als je een nieuw verhaal maakt. Met het potlood pas je de teksten zelf aan.</p>
   </div>
 
-  <footer>Alle plaatjes zijn eigen tekeningen, geen echte foto's — dus je kunt ze zonder zorgen delen.</footer>
+  <footer>Alle teksten zijn van Ari Dijxtra, de eikel.</footer>
 
 </div>
 
@@ -165,12 +165,14 @@ const SLOTS = [
       "Ik word helemaal gek van {x}.",
       "Daar heb je het weer: {x}!",
       "Ik zit al weken met {x}.",
-      "Mijn grootste probleem? {x}."
+      "Mijn grootste probleem is {x}."
     ],
     items:[
-      {t:"ingegroeide teennagel"},{t:"lekkend dak"},{t:"ovale fietswielen"},{t:"zieke lintworm"},
-      {t:"rijzende zeespiegel"},{t:"luchtvervuiling"},{t:"ziekte van Lock"},{t:"oorlog in Sudan"},
-      {t:"aanranding van plant"},{t:"te donker asfalt"}
+      {t:"een ingegroeide teennagel"},{t:"een lekkend dak"},{t:"mijn ovale fietswielen"},{t:"mijn zieke lintworm"},
+      {t:"de rijzende zeespiegel"},{t:"jou luchtvervuiling"},{t:"de ziekte van Lock"},{t:"de oorlog in Sudan"},
+      {t:"aanranding van planten"},{t:"te donker asfalt"},{t:"de dikke donder"},{t:"mensen met vleeswangen"},{t:"mijn dee en aa, zeg maar"},
+      {t:"de electrische auto uitstoot"},{t:"het rechtshandig gezwam"},{t:"mijn beenvlaag"},{t:"de erg korte afstanden"},{t:"de rijdende drones"},
+      {t:"de oorhulk"},{t:"de jachtkraag van Luns"},{t:"die massieve kenniselementen"},{t:"de langdraadige giro"}
     ]
   },
   { key:"cause", label:"2 · De oorzaak",
@@ -183,11 +185,15 @@ const SLOTS = [
       "Dit is de schuld van {x}!",
       "Ik weet het zeker: het ligt aan {x}.",
       "Alles wijst op {x}."
+      "Veroorzaakt door {x}."
+      "Er is maar 1 schuldig hier aan {x}."
     ],
     items:[
       {t:"president Nixon"},{t:"de Kennedys"},{t:"opwarming van de aarde"},{t:"stampende motoren"},
       {t:"dikke rails"},{t:"bladvorming voor de mond"},{t:"lange tong"},{t:"complexe processen"},
-      {t:"migratie"},{t:"vragende ganzen"}
+      {t:"migratie"},{t:"vragende ganzen"},{t:"oma"},{t:"die gillende baby"},{t:"te volle sloten"},
+      {t:"vragende ganzen"},{t:"lange kletsnekken"},{t:"wuivend fruit"},{t:"acuut verzadigd vet"},
+      {t:"de massa van vetlappen"},{t:"Trumpie"},{t:"voormalig resident Ram"},{t:"de schaapanalyse"}
     ]
   },
   { key:"feeling", label:"3 · Het gevoel",
@@ -208,7 +214,7 @@ const SLOTS = [
   },
   { key:"action", label:"4 · Het besluit",
     carriers:[
-      "Ik weet nu wat ik moet {x}!",
+      "Ik weet nu wat ik moet: {x}!",
       "Daarom ga ik {x}.",
       "Dus ga ik {x}.",
       "Ik weet het, ik ga daarom {x}.",
